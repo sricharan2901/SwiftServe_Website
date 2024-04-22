@@ -6,5 +6,4 @@ FrontEnd
 * HTML
 * CSS
 * ReactJS
-BackEnd
-* MongoDB
+
