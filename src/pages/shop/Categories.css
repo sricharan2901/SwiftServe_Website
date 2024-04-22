@@ -1,0 +1,32 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Adds space between category boxes */
+  margin: 20px auto; /* Centers the categories with automatic margins */
+  flex-wrap: wrap; 
+}
+
+.category-box {
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden; /* Ensures images do not overflow the container */
+  border-radius: 15px; /* Rounds the corners of the category box */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoothens the transitions */
+}
+
+.category-box img {
+  width: 100%;
+  transition: transform 0.3s ease; /* Ensures image transition is smooth */
+  border-radius: 15px; /* Matches container's border radius */
+}
+
+.category-box:hover {
+  transform: translateY(-5px); /* Slightly lifts the box */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Enhances shadow for a "lifted" effect */
+}
+
+.category-box:hover img {
+  transform: scale(1.05); /* Slightly enlarges the image */
+}

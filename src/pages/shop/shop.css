@@ -1,0 +1,99 @@
+@font-face {
+  font-family: Head1;
+  src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+.shopTitle {
+  text-align: center;
+  font-size: 40px;
+}
+.products {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.product {
+  border-radius: 55px;
+  width: 500px;
+  height: 650px;
+  margin: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product img {
+  width: 400px;
+  border-radius: 25px;
+}
+
+.product .description {
+  text-align: center;
+}
+
+.product:hover {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  background-color: rgb(89, 80, 114);
+}
+
+.addToCartBttn {
+  background-color: transparent;
+  border: 2px solid rgb(219, 205, 205);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+  color: antiquewhite;
+}
+
+.addToCartBttn:hover {
+  background-color: rgb(89, 80, 114);
+  color: white;
+  cursor: pointer;
+}
+
+#cat {
+  font-size: 80px;
+  font-family: poppins;
+  text-align: center;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.gallery-item {
+  min-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
