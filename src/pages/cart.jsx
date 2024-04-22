@@ -1,0 +1,69 @@
+import React, { useContext } from "react";
+import { ShopContext } from "../../context/shop-context";
+import { PRODUCTS } from "../../products";
+import { CartItem } from "./cart-item";
+import { useNavigate } from "react-router-dom";
+
+import "./cart.css";
+export const Cart = () => {
+  const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
+  const totalAmount = getTotalCartAmount();
+
+  const navigate = useNavigate();
+
+  return (
+    <div className="cart">
+      <div>
+        <h1 id="headering">Your Cart Items</h1>
+      </div>
+      <div className="cart">
+        {PRODUCTS.map((product) => {
+          if (cartItems[product.id] !== 0) {
+            return <CartItem data={product} />;
+          }
+        })}
+      </div>
+
+      {totalAmount > 0 ? (
+        <div className="checkout">
+          <h1 id="subheadering"> Subtotal: ₹{totalAmount} </h1>
+          <button onClick={() => navigate("/shop")}> Continue Shopping </button>
+          <button
+            onClick={() => {
+              checkout();
+              const productsWithNames = PRODUCTS.reduce((acc, product) => {
+              if (cartItems[product.id] > 0) {
+                acc[product.id] = {
+                name: product.productName,
+                quantity: cartItems[product.id],
+              };
+            }
+            return acc;
+            }, {});
+
+  alert("Checkout Successful! Thank you for purchasing!");
+    navigate("/appointments", {
+    state: {
+      totalAmount,
+      cartItems: productsWithNames,
+    },
+  });
+}}
+
+
+          >
+            {" "}
+            Checkout{" "}
+          </button>
+        </div>
+      ) : (
+        <>
+        <h1>Your Shopping Cart is Empty</h1>
+        <button className="empty-cart-button" onClick={() => navigate("/shop")}>
+          Go to Services
+        </button>
+      </>
+      )}
+    </div>
+  );
+};
